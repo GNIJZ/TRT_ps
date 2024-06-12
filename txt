@@ -1,4 +1,9 @@
-gnij首次提交：
-Caffe->TRT ARI-> TRT-Builder -> TRT-Engine
-————————————————————————————————————————————————
-gti
+gnij:
+    2024.6.12：
+        梳理python的协程和unity中协程的区别，python的迭代器的使用，已经迭代器和异步的结合，后续对multi-modal仓库的语音部分和大模型输出部分可以使用提高IO速度
+
+
+    目标：
+    继续学习：
+        Caffe->TRT ARI-> TRT-Builder -> TRT-Engine
+        ————————————————————————————————————————————————
