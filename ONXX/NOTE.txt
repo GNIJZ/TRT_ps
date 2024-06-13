@@ -1,0 +1,13 @@
+1、对于任何用到shape、size返回值的参数时，例如：tensor.view(tensor.size(0),-1)这类操作,
+避免直接使用tensor.size的返回值，而是加上int转换，tensor.view(int(tensor.size(0)),-1)
+2、对于nn.Upsample或者nn.functional.interpolate函数，使用size_factor指定倍率，而不是使用size参数指定大小
+3、对于reshape、view操作时，-1的指定请放到batch维度。其他维度可以计算出来。batch维度禁止指定为大于-1的明确数字
+4、torch.onnx.export指定dynamic_axes参数，并且只指定batch维度，不指定其他维度。我们只需要动态batch
+
+
+5、使用 Netron是一种用于神经网络、深度学习和机器学习模型的可视化工具，它可以为模型的架构生成具有描述性的可视化(descriptive visualization)。源码在：https://github.com/lutzroeder/netron ，主要由JavaScript语言实现，License为MIT，最新发布版本为5.9.6。
+      Netron是一个跨平台工具，可以在Linux、Windows和Mac上运行，并且支持多种框架和格式。Netron支持ONNX、TensorFlow Lite、Caffe、Keras、Darknet、PaddlePaddle、ncnn、MNN、Core ML、RKNN、MXNet、MindSpore Lite、TNN、Barracuda、Tengine、CNTK、TensorFlow.js、Caffe2 和 UFF
+      它还实验性支持PyTorch、TensorFlow、TorchScript、OpenVINO、Torch、Vitis AI、kmodel、Arm NN、BigDL、Chainer、Deeplearning4j、MediaPipe、ML.NET 和 scikit-learn。
+      安装Netron：
+      (1).windows：从https://github.com/lutzroeder/netron/releases/tag/v5.9.6 下载Netron-Setup-5.9.6.exe，双击安装即可，安装完后会在桌面生成Netron的图标，双击此图标即可打开，界面如下图所示：
+      (2)Linux：从https://github.com/lutzroeder/netron/releases/tag/v5.9.6 下载Netron-5.9.6.AppImage，给此文件添加执行权限：chmod u+x Netron-5.9.6.AppImage ，然后双击此文件即可打开。
